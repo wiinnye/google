@@ -3,8 +3,10 @@ import { React, useState } from 'react'
 import './SaveUser.css'
 
 import { BotaoBody } from '../Button/index'
-import { Input } from '@chakra-ui/react'
-
+import { Input, InputLeftElement, InputRightElement, InputGroup } from '@chakra-ui/react'
+import { BiSearch } from 'react-icons/bi'
+import { BiMicrophone } from 'react-icons/bi'
+import { BsKeyboard } from 'react-icons/bs'
 
 
 export const SaveUser = ({ onAddUser }) => {
@@ -27,30 +29,53 @@ export const SaveUser = ({ onAddUser }) => {
     setValor('')
   }
 
-// function Enter(e) {
-//       if (e.code === key ) {
-//         const enviar = handleSaveValue()
-//         console.log(enviar)
-//       }
-//     }
+  // function Enter(e) {
+  //       if (e.code === key ) {
+  //         const enviar = handleSaveValue()
+  //         console.log(enviar)
+  //       }
+  //     }
 
   return (
     <div className='container'>
       <div className='Input'>
         <h1>Google</h1>
         <div className='itens'>
-          <Input
-            size='lg'
-            variant='filled'
-            fontSize='1.2em'
-            width={500}
-            height={40}
-            border={'transparent'}
-            borderRadius={30}
-            value={valor}
-            onChange={e => setValor(e.target.value)}
+
+          <InputGroup>
+            <InputLeftElement
+              pointerEvents='none'
+              color={'grey'}
+              _focusVisible={{ background: "none" }}
+              children={<BiSearch color='gray.300' />}
+            />
+            <InputRightElement
+              pointerEvents='none'
+              mr='30px'
+              color={'grey'}
+              children={<BsKeyboard color='gray.300'
+              />}
+            />
+            <InputRightElement
+              pointerEvents='none'
+              color={'grey'}
+              children={<BiMicrophone color='gray.300' />}
+            />
+
+            <Input
+              size='md'
+              width='500px'
+              variant='filled'
+              bgColor='rgb(88, 89, 90)'
+              color='white'
+              border={'transparent'}
+              borderRadius={30}
+              value={valor}
+              onChange={e => setValor(e.target.value)}
             // onKeyDown={e => Enter(e)}
-          />
+            />
+          </InputGroup>
+
         </div>
       </div>
       <BotaoBody handleSaveValue={handleSaveValue} />

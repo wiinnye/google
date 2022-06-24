@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div className='footer'>
       <div className='footer-itens1'>
-        {/* <span>Brasil</span> */}
+        <span>Brasil</span>
       </div>
 
       <div className='footer-itens2'>
