@@ -1,6 +1,6 @@
 import { Button, Flex, FormControl, FormLabel, Input, Text, useToast } from '@chakra-ui/react';
-import { Main } from '../layout/main'
-import { Container } from '../layout/container'
+import { Main } from '../../layout/main'
+import { Container } from '../../layout/container'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 

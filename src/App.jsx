@@ -1,9 +1,9 @@
 import './App.css'
-import { Login } from './page/Login';
+import { Login } from './page/login/Login';
 import { Flex } from '@chakra-ui/react';
-import Home from './page/Home';
+import Home from './page/Dashboard/Home';
 import { Route, Routes } from 'react-router-dom';
-import  ForgotPassword  from './page/ForgotPassword'
+import  ForgotPassword  from './page/login/ForgotPassword'
 
 export default function App() {
 
