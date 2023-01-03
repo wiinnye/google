@@ -8,22 +8,24 @@ import { GetMovie } from '../../hook/Login/useGetMovie';
 
 export function LoginMovie() {
 
-  const [movie, setMovie] = useState()
+  const [movie, setMovie] = useState('')
 
   useEffect(() => {
-    if (movie) {
-      GetMovie(setMovie)
-    }
-  }, [movie])
+    GetMovie(setMovie)
+  }, [])
 
   return (
     <Main>
       <Container >
-        <Flex w='full' h='50%' bgColor='white' direction='column'>
+        <Flex w='full' h='full' bgColor='white' direction='column'>
           <Text color='black' mt='1rem' ml='2rem' fontSize='1.5rem'>Filmes e séries novos pra voçê!(:</Text>
           < Flex w='full' justify='space-around' mt='2rem' >
-            {/* <CardMovie img={movie.posterPath} label={movie.title} text={movie.movies.name} /> */}
-            <CardMovie img={finn} label={'nome filme'} text={"lorem sibjdnasndsndk dbsiadnosnd jdosnaokdnmosd ddndson"} />
+            <CardMovie
+              img={movie.results?.[0].posterPath}
+              label={movie.results?.[0].title}
+              text={movie.results?.[0].overview}
+              data={movie.results?.[0].releaseDate}
+            />
             <CardMovie img={finn} label={'nome filme'} text={"lorem sibjdnasndsndk dbsiadnosnd jdosnaokdnmosd ddndson"} />
           </Flex>
         </Flex>

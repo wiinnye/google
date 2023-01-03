@@ -1,9 +1,11 @@
 import { Button, Checkbox, Flex, FormControl, FormLabel, Input, Text, useToast } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {Header} from '../../components/Header';
+import { Header } from '../../components/Header';
 import { Container } from '../../layout/container';
 import { Main } from '../../layout/main'
+import { LoginMovie } from '../login/LoginMovie'
+
 
 export function Login() {
   const toast = useToast()
@@ -42,7 +44,7 @@ export function Login() {
   return (
     <Main>
       <Header />
-      <Container h='50%' justify="center" bgColor='yellow.300' >
+      <Container h='full' justify="center" bgColor='yellow.300' >
         <Flex w='full' h='full' justify='end' pr='3rem'  >
           <Flex
             w={{ base: '60%', md: '60%', lg: '40%' }}
@@ -103,7 +105,8 @@ export function Login() {
                   name='password'
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder='senha' />
+                  placeholder='senha'
+                />
               </FormControl>
             </Flex>
 
@@ -115,7 +118,8 @@ export function Login() {
                 cursor='pointer'
                 color="yellow.500"
                 onClick={() => navigate('/forgotpassword')}
-              > Esqueceu sua senha?</Text>
+              > Esqueceu sua senha?
+              </Text>
             </Flex>
             <Flex w='full' mt='2rem'>
               <Button
@@ -128,10 +132,10 @@ export function Login() {
                 Entrar
               </Button>
             </Flex>
-
           </Flex>
         </Flex>
-      </Container>     
+      </Container>
+      <LoginMovie />
     </Main>
   )
 }
