@@ -1,4 +1,5 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Icon, Text } from '@chakra-ui/react';
+import { MdMovieFilter } from 'react-icons/md'
 
 export function Header() {
   return (
@@ -8,12 +9,13 @@ export function Header() {
           fontSize='3rem'
           fontWeight='bold'
           color='yellow.400'
-          ml='1rem'
+          ml='3rem'
           mt='1rem'
         >
-          Seja Bem-Vindo!
+          Filmes e séries novos para voçê!
         </Text>
-        <Text mr='1rem' mt='2.5rem'>Logo aqui</Text>
+        <Icon as={MdMovieFilter} mt='2rem' mr='3rem' w={10} h={10} color='yellow.400' />
+
       </Flex>
     </Flex>
 

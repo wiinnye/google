@@ -1,6 +1,7 @@
 import { Button, Checkbox, Flex, FormControl, FormLabel, Input, Text, useToast } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Footer } from '../../components/Footer/footer';
 import { Header } from '../../components/Header';
 import { Container } from '../../layout/container';
 import { Main } from '../../layout/main'
@@ -44,6 +45,7 @@ export function Login() {
   return (
     <Main>
       <Header />
+      <LoginMovie />
       <Container h='full' justify="center" bgColor='yellow.300' >
         <Flex w='full' h='full' justify='end' pr='3rem'  >
           <Flex
@@ -135,7 +137,8 @@ export function Login() {
           </Flex>
         </Flex>
       </Container>
-      <LoginMovie />
+      
+      <Footer />
     </Main>
   )
 }

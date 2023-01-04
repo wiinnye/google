@@ -1,10 +1,12 @@
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { Main } from '../../layout/main'
 import { Container } from '../../layout/container'
-import finn from '../../img/finn.png'
 import { CardMovie } from '../../components/Card';
 import { useEffect, useState } from 'react';
 import { GetMovie } from '../../hook/Login/useGetMovie';
+import { MdFavorite } from 'react-icons/md'
+import { MdFavoriteBorder } from 'react-icons/md'
+
 
 export function LoginMovie() {
 
@@ -14,19 +16,51 @@ export function LoginMovie() {
     GetMovie(setMovie)
   }, [])
 
+  const vote = () => {
+    if (movie) {
+      if (movie.voteAverage >= 5) {
+        console.log('aqui')
+        return (
+          < MdFavorite />
+        )
+      } else {
+        console.log('else')
+        return <MdFavoriteBorder />
+      }
+    }
+
+  }
+
   return (
     <Main>
       <Container >
         <Flex w='full' h='full' bgColor='white' direction='column'>
-          <Text color='black' mt='1rem' ml='2rem' fontSize='1.5rem'>Filmes e séries novos pra voçê!(:</Text>
-          < Flex w='full' justify='space-around' mt='2rem' >
+          < Flex
+            w='full'
+            justify='space-around'
+            mt='2rem'
+            direction='row'>
             <CardMovie
-              img={movie.results?.[0].posterPath}
-              label={movie.results?.[0].title}
-              text={movie.results?.[0].overview}
-              data={movie.results?.[0].releaseDate}
+              img={movie.results?.[13].posterPath}
+              label={movie.results?.[13].title}
+              text={movie.results?.[13].overview}
+              data={movie.results?.[13].releaseDate}
+              fav={vote}
             />
-            <CardMovie img={finn} label={'nome filme'} text={"lorem sibjdnasndsndk dbsiadnosnd jdosnaokdnmosd ddndson"} />
+            <CardMovie
+              img={movie.results?.[1].posterPath}
+              label={movie.results?.[1].title}
+              text={movie.results?.[1].overview}
+              data={movie.results?.[1].releaseDate}
+              fav={vote}
+            />
+            <CardMovie
+              img={movie.results?.[3].posterPath}
+              label={movie.results?.[3].title}
+              text={movie.results?.[3].overview}
+              data={movie.results?.[3].releaseDate}
+              fav={vote}
+            />
           </Flex>
         </Flex>
       </Container>

@@ -1,12 +1,13 @@
 import { api } from '../../services/api';
 
-export async function GetMovie(setMovie) {
+export async function GetNowPlaying(setMovie) {
   try {
-    const { data } = await api.get(`https://api.themoviedb.org/3/movie/popular?api_key=681393a7e4e2728ab97702c593cdc874&language=pt-BR&page=1`)
+    const { data } = await api.get
+      (`https://api.themoviedb.org/3/movie/now_playing?api_key=681393a7e4e2728ab97702c593cdc874&language=pt-BR&page=1`)
     console.log(data)
 
-    const searchMovies = {
-      results: data.results.map((item) => ({
+    const nowMovies = {
+      movie: data.results.map((item) => ({
         overview: item.overview,
         title: item.title,
         posterPath: item.poster_path,
@@ -15,7 +16,7 @@ export async function GetMovie(setMovie) {
       }
       )),
     }
-    setMovie(searchMovies)
+    setMovie(nowMovies)
   } catch (erro) {
     console.log(erro.message)
   }
