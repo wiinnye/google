@@ -10,32 +10,36 @@ import { useState } from 'react';
 import { GetNowPlaying } from '../../hook/Dashboard/GetNowPlaying';
 
 export default function Home() {
-  const { movie, setMovie } = useState()
+  const [movie, setMovie] = useState()
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   useEffect(() => {
-    GetNowPlaying()
-  }, [])
+    GetNowPlaying(setMovie)
+  }, [movie])
 
   return (
     <>
       <Main>
-        <Container>
+        <Container >
           <HeaderDashboard onOpen={onOpen} />
-          <Flex justify='center'>
-            <Flex>
-              <Text>Lançamentos</Text>
+          <Flex w='full' h='full' direction='column' >
+            <Flex ml='1rem'>
+              <Text fontSize='2rem'>Ultimos Lançamentos</Text>
             </Flex>
-            {/* {movie.movie.map((item) => ( */}
-              <CardMovie
-                //key={item.id}
-              // img={item.results.posterPath}
-              // text={item.results.overview}
-              // data={item.results.overview}
-              // label={item.results.overview}
-              />
-            {/* )) */}
-            {/* } */}
+            <Flex w='full' wrap='wrap' justify='center'>
+              {movie ?
+                movie.movie.map((item) => (
+                  < CardMovie
+                    ml='1rem'
+                    key={item.id}
+                    img={item.posterPath !== "" ? item.posterPath : 'sem imagem'}
+                    label={item.title !== "" ? item.title : 'sem titulo'}
+                    text={item.overview !== "" ? item.overview : 'sem descrição'}
+                  />
+                ))
+                : <Text> Não temos filmes no momento</Text>
+              }
+            </Flex>
           </Flex>
         </Container>
       </Main>

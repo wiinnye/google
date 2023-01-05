@@ -8,16 +8,20 @@ import ForgotPassword from './page/login/ForgotPassword'
 export default function App() {
 
   return (
-    <Flex className="App">
-      <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/forgotpassword' element={<ForgotPassword />} />
-      </Routes>
-    </Flex>
+    <>
+      <Flex className="App">
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/forgotpassword' element={<ForgotPassword />} />
+        </Routes>
+      </Flex>
+    </>
   )
 
 }
+
+
 
   // const [list, setList] = useState([])
 

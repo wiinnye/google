@@ -3,7 +3,6 @@ export function CardMovie({ children, label, text, img, data, fav, ...rest }) {
   return (
     <Flex
       maxW={{ base: '300px', sm: '200px', lg: '350px' }}
-      h={{ base: '25%', sm: 'full', lg: '90%' }}
       bgColor='yellow.200'
       borderRadius='1rem'
       direction='column'
