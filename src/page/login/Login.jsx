@@ -46,7 +46,7 @@ export function Login() {
     <Main>
       <Header />
       <LoginMovie />
-      <Container h='full' justify="center" bgColor='yellow.300' >
+      <Container h='full' justify="center" bgColor='yellow.300' mt='1rem'>
         <Flex w='full' h='full' justify='end' pr='3rem'  >
           <Flex
             w={{ base: '60%', md: '60%', lg: '40%' }}

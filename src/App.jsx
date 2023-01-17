@@ -4,6 +4,7 @@ import { Flex } from '@chakra-ui/react';
 import Home from './page/Dashboard/Home';
 import { Route, Routes } from 'react-router-dom';
 import ForgotPassword from './page/login/ForgotPassword'
+import Search from './page/Dashboard/Search';
 
 export default function App() {
 
@@ -13,6 +14,7 @@ export default function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/home' element={<Home />} />
+          <Route path='/search' element={<Search />} />
           <Route path='/forgotpassword' element={<ForgotPassword />} />
         </Routes>
       </Flex>

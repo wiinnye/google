@@ -19,16 +19,13 @@ export function LoginMovie() {
   const vote = () => {
     if (movie) {
       if (movie.voteAverage >= 5) {
-        console.log('aqui')
         return (
           < MdFavorite />
         )
       } else {
-        console.log('else')
         return <MdFavoriteBorder />
       }
     }
-
   }
 
   return (
@@ -37,28 +34,23 @@ export function LoginMovie() {
         <Flex w='full' h='full' bgColor='white' direction='column'>
           < Flex
             w='full'
+            h='full'
             justify='space-around'
             mt='2rem'
             direction='row'>
             <CardMovie
-              img={movie.results?.[13].posterPath}
-              label={movie.results?.[13].title}
-              text={movie.results?.[13].overview}
-              data={movie.results?.[13].releaseDate}
+              img={movie.results?.[0].posterPath}
+              label={movie.results?.[0].title}
               fav={vote}
             />
             <CardMovie
               img={movie.results?.[1].posterPath}
               label={movie.results?.[1].title}
-              text={movie.results?.[1].overview}
-              data={movie.results?.[1].releaseDate}
               fav={vote}
             />
             <CardMovie
-              img={movie.results?.[3].posterPath}
-              label={movie.results?.[3].title}
-              text={movie.results?.[3].overview}
-              data={movie.results?.[3].releaseDate}
+              img={movie.results?.[2].posterPath}
+              label={movie.results?.[2].title}
               fav={vote}
             />
           </Flex>
